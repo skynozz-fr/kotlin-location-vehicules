@@ -14,4 +14,9 @@ class Utilitaire(
         super.afficherDetails()
         println("Volume: $volume m³")
     }
+
+    // Fournit une représentation textuelle de l'utilitaire
+    override fun toString(): String {
+        return "${super.toString()}, Volume : $volume m³"
+    }
 }

@@ -1,6 +1,6 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe pour les citadines, héritant de Vehicule
+// Classe pour représenter une citadine
 class Citadine(
     marque: String,
     modele: String,
@@ -9,9 +9,14 @@ class Citadine(
     private val taille: String
 ) : Vehicule(marque, modele, couleur, carburant) {
 
-    // Surcharge de la méthode afficherDetails pour inclure la taille
+    // Affiche les détails spécifiques de la citadine
     override fun afficherDetails() {
         super.afficherDetails()
-        println("Taille: $taille")
+        println("Taille : $taille")
+    }
+
+    // Fournit une représentation textuelle de la citadine
+    override fun toString(): String {
+        return "${super.toString()}, Taille : $taille"
     }
 }

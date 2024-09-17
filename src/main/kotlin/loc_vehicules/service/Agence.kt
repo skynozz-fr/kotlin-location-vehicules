@@ -11,9 +11,11 @@ class Agence {
 
     init {
         // Ajouter quelques véhicules pour démarrer
-        vehicules.add(VoitureSport("Ferrari", "488", "Rouge", "Essence", 670))
-        vehicules.add(Citadine("Renault", "Clio", "Bleu", "Diesel", "Petite"))
-        vehicules.add(Utilitaire("Mercedes", "Sprinter", "Blanc", "Diesel", 15.0))
+        vehicules.run {
+            add(VoitureSport("Ferrari", "488", "Rouge", "Essence", 670))
+            add(Citadine("Renault", "Clio", "Bleu", "Diesel", "Petite"))
+            add(Utilitaire("Mercedes", "Sprinter", "Blanc", "Diesel", 15.0))
+        }
     }
 
     // Affiche tous les véhicules disponibles
@@ -58,11 +60,14 @@ class Agence {
         val dateFin = lireDate(minDate = dateDebut) ?: return
 
         val vehicule = vehicules[vehiculeIndex]
+
+        // Vérifier la disponibilité du véhicule pour la période choisie
         if (!estDisponible(vehicule, dateDebut, dateFin)) {
             println("Le véhicule n'est pas disponible pour les dates fournies.")
             return
         }
 
+        // Créer et ajouter la nouvelle location
         val location = Location(vehicule, dateDebut, dateFin)
         locations.add(location)
         println("Location ajoutée avec succès.")
@@ -95,9 +100,9 @@ class Agence {
                         attendreInput()
                         continue
                     }
-                    println("Entrez le nouveau kilométrage :")
-                    val kilometrage = readlnOrNull()?.toIntOrNull() ?: return
-                    location.kilometrage = kilometrage
+                    println("Entrez le nombre de kilomètres à ajouter :")
+                    val kilometres = readlnOrNull()?.toIntOrNull() ?: return
+                    location.ajouterKilometrage(kilometres)
                     println("Kilométrage mis à jour avec succès.")
                     attendreInput()
                 }
@@ -110,6 +115,7 @@ class Agence {
                     locations.removeAt(locationIndex)
                     println("Location annulée avec succès.")
                     attendreInput()
+                    return
                 }
                 3 -> {
                     if (location.terminee) {
@@ -118,8 +124,11 @@ class Agence {
                         continue
                     }
                     location.payee = true
-                    println("Location marquée comme payée.")
+                    location.terminee = true
+                    println("Location marquée comme payée et retournée avec succès.")
+                    locations.removeAt(locationIndex)
                     attendreInput()
+                    return
                 }
                 4 -> {
                     if (!location.payee) {
@@ -128,8 +137,8 @@ class Agence {
                         continue
                     }
                     location.terminee = true
-                    locations.removeAt(locationIndex)
                     println("Véhicule retourné avec succès.")
+                    locations.removeAt(locationIndex)
                     attendreInput()
                 }
                 5 -> {

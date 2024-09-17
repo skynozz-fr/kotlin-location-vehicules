@@ -14,11 +14,20 @@ class Location(
 
     // Fonction pour afficher les détails de la location
     fun afficherDetails() {
-        println("Véhicule : $vehicule")
+        println("$vehicule")
         println("Date de début : $dateDebut")
         println("Date de fin : $dateFin")
         println("Kilométrage : $kilometrage km")
-        println("Payée : $payee")
-        println("Terminée : $terminee")
+        println("Payée : ${if (payee) "Oui" else "Non"}")
+        println("Terminée : ${if (terminee) "Oui" else "Non"}")
+    }
+
+    // Ajoute des kilomètres à la location
+    fun ajouterKilometrage(kilometres: Int) {
+        if (!terminee) {
+            kilometrage += kilometres
+        } else {
+            println("Impossible d'ajouter des kilomètres, la location est terminée.")
+        }
     }
 }

@@ -1,17 +1,22 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe pour les voitures de sport, héritant de Vehicule
+// Classe pour représenter une voiture de sport
 class VoitureSport(
     marque: String,
     modele: String,
     couleur: String,
     carburant: String,
-    private val puissance: Int
+    private val puissance: Int,
 ) : Vehicule(marque, modele, couleur, carburant) {
 
-    // Surcharge de la méthode afficherDetails pour inclure la puissance
+    // Affiche les détails spécifiques de la voiture de sport
     override fun afficherDetails() {
         super.afficherDetails()
-        println("Puissance: $puissance CV")
+        println("Puissance : $puissance ch")
+    }
+
+    // Fournit une représentation textuelle de la voiture de sport
+    override fun toString(): String {
+        return "${super.toString()}, Puissance : $puissance ch"
     }
 }
