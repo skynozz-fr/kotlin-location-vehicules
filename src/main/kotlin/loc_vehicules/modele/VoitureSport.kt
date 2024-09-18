@@ -1,6 +1,5 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe pour représenter une voiture de sport
 class VoitureSport(
     marque: String,
     modele: String,

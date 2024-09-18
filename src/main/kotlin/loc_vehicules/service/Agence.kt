@@ -165,7 +165,7 @@ class Agence {
             val dateInput = readlnOrNull() ?: return null
             val date = LocalDate.parse(dateInput)
             if (minDate != null && date.isBefore(minDate)) {
-                println("La date doit être après ou égale à $minDate")
+                println("La date doit être supérieur ou égale à $minDate")
                 null
             } else {
                 date
@@ -179,6 +179,6 @@ class Agence {
     // Fonction pour attendre l'entrée de l'utilisateur avant de continuer
     private fun attendreInput() {
         println("Appuyez sur Entrée pour continuer...")
-        readlnOrNull() // Attend que l'utilisateur appuie sur Entrée
+        readlnOrNull()
     }
 }

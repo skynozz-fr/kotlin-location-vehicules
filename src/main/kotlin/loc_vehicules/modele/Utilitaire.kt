@@ -1,6 +1,5 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe pour les utilitaires, héritant de Vehicule
 class Utilitaire(
     marque: String,
     modele: String,

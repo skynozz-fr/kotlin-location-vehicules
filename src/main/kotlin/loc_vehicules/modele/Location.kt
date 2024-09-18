@@ -2,7 +2,6 @@ package main.kotlin.loc_vehicules.modele
 
 import java.time.LocalDate
 
-// Classe pour représenter une location
 class Location(
     val vehicule: Vehicule,
     val dateDebut: LocalDate,

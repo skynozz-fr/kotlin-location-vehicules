@@ -1,6 +1,5 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe pour représenter une citadine
 class Citadine(
     marque: String,
     modele: String,

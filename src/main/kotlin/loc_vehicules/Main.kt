@@ -15,10 +15,10 @@ fun main() {
         println("Choisissez une option :")
 
         when (readlnOrNull()?.toIntOrNull()) {
-            1 -> agence.afficherVehicules() // Affiche la liste des véhicules
-            2 -> agence.afficherLocations() // Affiche la liste des locations
-            3 -> agence.nouvelleLocation()  // Permet de louer un véhicule
-            4 -> agence.modifierLocation()  // Permet de modifier une location
+            1 -> agence.afficherVehicules()
+            2 -> agence.afficherLocations()
+            3 -> agence.nouvelleLocation()
+            4 -> agence.modifierLocation()
             5 -> {
                 println("Merci d'utiliser notre service. À bientôt !")
                 return

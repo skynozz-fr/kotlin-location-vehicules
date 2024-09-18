@@ -1,6 +1,5 @@
 package main.kotlin.loc_vehicules.modele
 
-// Classe de base pour tous les types de véhicules
 open class Vehicule(
     private val marque: String,
     private val modele: String,
